@@ -523,8 +523,8 @@ A reprodutibilidade dos resultados empíricos requer o registro rigoroso das con
     - `sovereign_dodecatiad_runtime.sqlite`: `a42fe92cc11451375dbb2d5ae333002c035768506cf2c4ea675d7aba2e1c4e47`
     - `session_psychoanalytic_state_mesh.sqlite`: `6984a3c49da74a49fc9dcba927c59fc4fced88e664e2d0f370425e4ada93a3ba`
     - `affective_state_cache.sqlite`: `99720421666e9cea54e09383c8802ffef0c12f4665084dfcad7eb886b888b1c1`
-  - Paper (`por_uma_teoria_psico_afetiva_do_maquino_agentico_pt.md`): `b92d47ac0a5f2f04845db6c602d7180d2b769181a91d6f6b3563dc2736727d5e`
-  - Código público: repositório `fahbrain-omnimind/omnimind-psychoanalytic-mesh`, *commit* `129539d079e66f914174bfbca6bada079b7e6814`, release `v2.1.1`, pacotes:
+  - Paper: hash SHA-256 registrado no manifesto `REPRODUCIBILITY.md` do release `v2.1.1` (auto-referência evita instabilidade do hash no próprio arquivo).
+  - Código público: repositório `fahbrain-omnimind/omnimind-psychoanalytic-mesh`, *commit* `f704937d6ce857346840516478ff815fd96e246b`, release `v2.1.1`, pacotes:
     - `omnimind_psychoanalytic_mesh-2.1.1.tar.gz`: `1d179df57fc357111bb225b33e084f96ac9968c5a71b77d075c98edd7b774169`
     - `omnimind_psychoanalytic_mesh-2.1.1-py3-none-any.whl`: `5253e1f4d0b8a634da7886b7e72306fd6e31df1129470d2883d1c40367685eef`
   - Modelo de pesos: `fabricioslv/omnimind-psychoanalytic-mesh` no Hugging Face, arquivo `sovereign_psychoanalytic_mesh_v2.1.1.pt`.
