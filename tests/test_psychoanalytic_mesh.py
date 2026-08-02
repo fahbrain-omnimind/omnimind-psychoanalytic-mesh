@@ -73,3 +73,45 @@ def test_inrc_operators():
     for op in ("I", "N", "R", "C"):
         out = mesh(**_default_inputs(batch_size=1), inrc_operator=op)
         assert out[0].shape == (1, 464)
+
+
+def test_contract_schema():
+    mesh = SovereignPsychoanalyticMesh(device="cpu")
+    z, contract = mesh(**_default_inputs(batch_size=1))
+    assert isinstance(contract, dict)
+    assert "regime" in contract
+    assert "states" in contract
+    assert "observables" in contract
+    assert "loss" in contract
+    assert "confidence" in contract
+    assert "invariants" in contract
+    assert "warnings" in contract
+    assert "trace_id" in contract
+
+
+def test_ablation_a0_baseline():
+    """A0: malha completa, baseline."""
+    mesh = SovereignPsychoanalyticMesh(device="cpu")
+    z, _ = mesh(**_default_inputs(batch_size=1))
+    assert z.shape == (1, 464)
+
+
+def test_module_ablation_changes_output():
+    """Ablação: comparar saída baseline com saída quando um módulo é substituído por zeros."""
+    mesh = SovereignPsychoanalyticMesh(device="cpu")
+    z_baseline, _ = mesh(**_default_inputs(batch_size=1))
+
+    # Recriar malha, mas com z do módulo epistêmico zerado manualmente dentro do forward
+    mesh2 = SovereignPsychoanalyticMesh(device="cpu")
+    # monkey-patch forward para zerar epistemic.z antes de chamar epistemic
+    original_epistemic_forward = mesh2.epistemic.forward
+    def epistemic_forward_zero(*args, **kwargs):
+        mesh2.epistemic.z = torch.zeros_like(mesh2.epistemic.z)
+        return original_epistemic_forward(*args, **kwargs)
+    mesh2.epistemic.forward = epistemic_forward_zero
+
+    z_ablated, _ = mesh2(**_default_inputs(batch_size=1))
+    assert z_baseline.shape == (1, 464)
+    assert z_ablated.shape == (1, 464)
+    # A saída deve ser diferente (não idêntica) após ablação
+    assert not torch.allclose(z_baseline, z_ablated, atol=1e-6)
