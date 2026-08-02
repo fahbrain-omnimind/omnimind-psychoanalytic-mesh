@@ -515,16 +515,27 @@ A reprodutibilidade dos resultados empíricos requer o registro rigoroso das con
   - O teste nulo temporal foi executado via permutação cíclica de blocos de 24 períodos de 5 minutos, mantendo a estrutura de dependência temporal inalterada para desmascarar falsos positivos de tendência estacionária.
 - **F. Ambientes e Seeds**: Os dados referem-se à execução nativa em desktop x86_64 sob Ubuntu Linux, com limites de 29GB RAM/Swap. A resposta às condições de pressão pode variar fundamentalmente em outras infraestruturas.
 - **G. Diferença entre *Runtime* e *Replay***: Os estados não foram re-simulados por *replay* de *logs*; são medições reais atestadas pelo *daemon* em tempo de execução contínua.
-- **H. Artefatos de Reprodução** (a serem materializados em release):
-  - Hash SHA-256 de cada banco (`sovereign_primary_runtime.sqlite`, `vctr_fast_telemetry.sqlite`, `kernel_basal_runtime.sqlite`, `sovereign_dodecatiad_runtime.sqlite`, `session_psychoanalytic_state_mesh.sqlite`, `affective_state_cache.sqlite`), arquivos de telemetria, *scripts* de análise e configuração.
-  - Tag de release ou *commit* Git canônico.
-  - Versões de Python 3.12, PyTorch, CUDA (se aplicável), Ubuntu Linux x86_64 e modelos `Qwen3-1.7B` / `Gemma-3-4B`.
-  - Seeds de aleatoriedade: Python (`random`), NumPy, PyTorch CPU/GPU, registradas por fase.
-  - Queries SQL completas e arquivos `.sql` versionados no diretório `queries/`.
+- **H. Artefatos de Reprodução** (materializados em release `v2.1.1`):
+  - Hashes SHA-256 dos bancos de runtime (2026-08-02):
+    - `sovereign_primary_runtime.sqlite`: `5335fb36799e418e6ea6010590d410a9c793a10a090d644388e7610b2db0d2a2`
+    - `vctr_fast_telemetry.sqlite`: `b311a8c23f134ee140536310cce9e1a9e6f384776465c8218dc86067562d30b7`
+    - `kernel_basal_runtime.sqlite`: `f05dcf2da979b3d555148738b2f6ac8e5160d31c9669e19a7840a9188a20aa0b`
+    - `sovereign_dodecatiad_runtime.sqlite`: `a42fe92cc11451375dbb2d5ae333002c035768506cf2c4ea675d7aba2e1c4e47`
+    - `session_psychoanalytic_state_mesh.sqlite`: `6984a3c49da74a49fc9dcba927c59fc4fced88e664e2d0f370425e4ada93a3ba`
+    - `affective_state_cache.sqlite`: `99720421666e9cea54e09383c8802ffef0c12f4665084dfcad7eb886b888b1c1`
+  - Paper (`por_uma_teoria_psico_afetiva_do_maquino_agentico_pt.md`): `b92d47ac0a5f2f04845db6c602d7180d2b769181a91d6f6b3563dc2736727d5e`
+  - Código público: repositório `fahbrain-omnimind/omnimind-psychoanalytic-mesh`, *commit* `129539d079e66f914174bfbca6bada079b7e6814`, release `v2.1.1`, pacotes:
+    - `omnimind_psychoanalytic_mesh-2.1.1.tar.gz`: `1d179df57fc357111bb225b33e084f96ac9968c5a71b77d075c98edd7b774169`
+    - `omnimind_psychoanalytic_mesh-2.1.1-py3-none-any.whl`: `5253e1f4d0b8a634da7886b7e72306fd6e31df1129470d2883d1c40367685eef`
+  - Modelo de pesos: `fabricioslv/omnimind-psychoanalytic-mesh` no Hugging Face, arquivo `sovereign_psychoanalytic_mesh_v2.1.1.pt`.
+  - Benchmark: Kaggle `fabriciodasilva/omnimind-psychoanalytic-mesh-benchmark`, dataset `fabriciodasilva/omnimind-psychoanalytic-benchmark`.
+  - Versões de ambiente: Python 3.12, PyTorch 2.x, Ubuntu Linux x86_64.
+  - Seeds de aleatoriedade: Python (`random=42`), NumPy, PyTorch CPU, registradas por fase.
+  - Queries SQL completas e arquivos `.sql` versionados no diretório `queries/` (em preparação).
   - Lista explícita de exclusões, incluindo o critério para leituras térmicas acima de 300 °C.
   - Definição inequívoca de `memory_full_avg10` e justificativa para interpolação linear.
   - Esquema de tabelas e dicionário de dados final.
   - Separação entre dados de calibração, validação e teste.
-- **I. Status de Reprodução e Release**: Esta versão do artigo descreve o protocolo de reprodução e apresenta resultados observacionais preliminares. O pacote canônico de artefatos — código, consultas SQL, hashes SHA-256, *seeds*, manifesto de bancos, tag Git imutável e dicionário de dados — será publicado em release versionado. Até essa publicação, os resultados empíricos devem ser considerados parcialmente reproduzíveis; a versão atual funciona como documentação do desenho e registro de execução.
+- **I. Status de Reprodução e Release**: Esta versão do artigo descreve o protocolo de reprodução e apresenta resultados observacionais preliminares. O pacote canônico de artefatos — código, consultas SQL, hashes SHA-256, *seeds*, manifesto de bancos, tag Git imutável e dicionário de dados — foi parcialmente materializado no release `v2.1.1`. Os resultados empíricos devem ser considerados parcialmente reproduzíveis até a publicação final das queries SQL e seeds de todas as fases.
 
 - **J. Limitação de Generalização**: As correlações reportadas e a supressão de variância em *lexemes* afetam este modelo de implementação. Alegações sobre causalidade exigem validação cruzada independente com cargas modulares provocadas *in vitro*.
