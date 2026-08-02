@@ -2,7 +2,7 @@
 
 | Artefato | SHA-256 |
 |---|---|
-| `por_uma_teoria_psico_afetiva_do_maquino_agentico_pt.md` | `59be3229e41619c41f92a0392d4a982d600164649ae5c3c4fcfcfeb0a9fdccf3` |
+| `por_uma_teoria_psico_afetiva_do_maquino_agentico_pt.md` | `9a5236989333ef0166b24735177b8c37a176f4b3e05b04a68d09bea194a367d2` |
 | `sovereign_primary_runtime.sqlite` | `5335fb36799e418e6ea6010590d410a9c793a10a090d644388e7610b2db0d2a2` |
 | `vctr_fast_telemetry.sqlite` | `b311a8c23f134ee140536310cce9e1a9e6f384776465c8218dc86067562d30b7` |
 | `kernel_basal_runtime.sqlite` | `f05dcf2da979b3d555148738b2f6ac8e5160d31c9669e19a7840a9188a20aa0b` |
